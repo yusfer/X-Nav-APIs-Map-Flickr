@@ -1,4 +1,4 @@
-	function chooseAddr(lat, lng, type) {
+	function chooseAddr(lat, lng,type) {
 	  var location = new L.LatLng(lat, lng);
 	  map.panTo(location);
 
@@ -11,7 +11,7 @@
 
 $(document).ready(function(){
 	
-    var map = L.map('map').setView([0, 0], 13);
+    map = L.map('map').setView([0, 0], 13);
 
 // add an OpenStreetMap tile layer
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {

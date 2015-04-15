@@ -8,6 +8,72 @@
 		map.setZoom(13);
 	  }
 	}
+	
+function creoCarrousel(array){
+	var carousel = ""
+	
+    carousel = '<div id="myCarousel" class="carousel slide" data-ride="carousel">'+
+      
+     ' <ol class="carousel-indicators">'+
+     '   <li data-target="#myCarousel" data-slide-to="0" class="active"></li>'+
+     '   <li data-target="#myCarousel" data-slide-to="1"></li>'+
+     '   <li data-target="#myCarousel" data-slide-to="2"></li>'+
+     '   <li data-target="#myCarousel" data-slide-to="3"></li>'+
+     '   <li data-target="#myCarousel" data-slide-to="4"></li>'+
+     '   <li data-target="#myCarousel" data-slide-to="5"></li>'+
+    '  </ol>'+
+     ' <div class="carousel-inner" role="listbox">'+
+     '   <div class="item active">'+
+      '    <img src="'+array[0]+'" alt="First slide">'+
+       '   <div class="container">'+
+       '     <div class="carousel-caption">'+
+              
+      '      </div>'+
+        '  </div>'+
+    '    </div>'+
+      '  <div class="item">'+
+      '    <img src="'+array[1]+'" alt="Second slide">'+
+        '  <div class="container">'+
+       '     <div class="carousel-caption">'+
+        '    </div>'+
+       '   </div>'+
+       ' </div>'+
+       ' <div class="item">'+
+       '   <img src="'+array[2]+'" alt="Third slide">'+
+       '   <div class="container">'+
+       '     <div class="carousel-caption">'+
+             
+       '     </div>'+
+      '    </div>'+
+      '  </div>'+
+       ' <div class="item">'+
+       '   <img src="'+array[3]+'" alt="Third slide">'+
+       '   <div class="container">'+
+       '     <div class="carousel-caption">'+
+             
+       '     </div>'+
+      '    </div>'+
+      '  </div>'+
+       ' <div class="item">'+
+      '    <img src="'+array[4]+'" alt="Fourth slide">'+
+        '  <div class="container">'+
+        '    <div class="carousel-caption">'+
+             
+       '     </div>'+
+        '  </div>'+
+     '   </div>'+
+    '  </div>'+
+     ' <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">'+
+      '  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>'+
+      '  <span class="sr-only">Previous</span>'+
+    '  </a>'+
+     ' <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">'+
+      '  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'+
+     '   <span class="sr-only">Next</span>'+
+      '</a>'+
+   ' </div>'
+   return carousel
+}
 
 $(document).ready(function(){
 	
@@ -86,14 +152,19 @@ $(document).ready(function(){
 							$('<p>', { html: "No results found" }).appendTo('#results');
 						}
 			})
+		url = "http://api.flickr.com/services/feeds/photos_public.gne?tags=" + inp.value + "&tagmode=any&format=json&jsoncallback=?"
+		$.getJSON(url,function(data){
 			
+			var  array = []
+			for(i=0;i<5;i++){
+				//list = list + "<li><img src=" + data.items[i].media.m+ "></li>"
+				array.push(data.items[i].media.m)
+			}
+			var carrousel = creoCarrousel(array)	//funcion que crea carrousel de tamaño 5
+			$("#fotos").html(carrousel);
+		})		
 	};
 	$('#busca').click(addr_search)
 })
 	
-/*
-	}
-
-});*/
-
 

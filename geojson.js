@@ -164,6 +164,8 @@ $(document).ready(function(){
 		})		
 	};
 	$('#busca').click(addr_search)
+	//$('#addr').on('keyup',addr_search).keyup()
+	$('#addr').keyup(addr_search)
 })
 	
 

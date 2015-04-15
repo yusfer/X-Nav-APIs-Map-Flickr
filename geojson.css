@@ -24,3 +24,10 @@ div#results {
  margin:60px 60px 60px 60px;
 
 }
+
+#fotos > img{
+ background-color: green;
+ }
+ 
+.carousel-inner { text-align: center; }
+.carousel .item > img { display: inline-block; }

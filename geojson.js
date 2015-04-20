@@ -8,7 +8,7 @@
 		map.setZoom(13);
 	  }
 	}
-	
+	// función crea el carrousel
 function creoCarrousel(array){
 	var carousel = ""
 	
